@@ -14,7 +14,9 @@ File or Folder | Purpose
 
 
 ## Next Steps
-Download the the job-portal from github.com using command https://github.com/sachinmahanin/job-portal.git
+Download the the job-portal from github.com using command 
+git clone https://github.com/sachinmahanin/job-portal.git
+
 
 1. Open the job-portal folder in vscode
 2. Open a  terminal  and Run “npm install”
