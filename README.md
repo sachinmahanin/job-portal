@@ -14,10 +14,12 @@ File or Folder | Purpose
 
 
 ## Next Steps
+Download the the job-portal from github.com using command https://github.com/sachinmahanin/job-portal.git
 
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+1. Open the job-portal folder in vscode
+2. Open a  terminal  and Run “npm install”
+3. Run “npm run watch-fiori” , UI will come up , log in with any of the UserName & Password mentioned below.
+4. Please note that it is difficult to switch the user with basic authentication . I have to kill the chrome and restart the application.
 
 
 ## Learn More
