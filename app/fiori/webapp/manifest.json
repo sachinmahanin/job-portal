@@ -1,0 +1,189 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "jpms.fiori.fiori",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.12.2",
+      "toolsId": "eb6cf4a1-f378-4907-b657-1b539e8a1b75"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/job-manager/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.5",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "jpms.fiori.fiori.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "JobPostingList",
+          "target": [
+            "JobPostingList"
+          ]
+        },
+        {
+          "pattern": "JobPosting({key}):?query:",
+          "name": "JobPostingObjectPage",
+          "target": [
+            "JobPostingList",
+            "JobPostingObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "JobPostingList": {
+          "type": "Component",
+          "id": "JobPostingList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/JobPosting",
+              "navigation": {
+                "JobPosting": {
+                  "detail": {
+                    "route": "JobPostingObjectPage"
+                  }
+                }
+              },
+              "hideFilterBar": false,
+              "initialLoad": "Enabled",
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView1",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem#tableView": {
+                  "tableSettings": {
+                    "personalization": {
+                      "column": false,
+                      "filter": true
+                    },
+                    "type": "ResponsiveTable",
+                    "selectionMode": "Auto",
+                    "selectionLimit": 1,
+                    "condensedTableLayout": true
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "JobPostingObjectPage": {
+          "type": "Component",
+          "id": "JobPostingObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/JobPosting",
+              "navigation": {},
+              "content": {
+                "footer": {
+                  "actions": {
+                    "DataFieldForAction::JobManager.rejectJobPosting": {
+                      "afterExecution": {
+                        "enableAutoScroll": true
+                      }
+                    }
+                  }
+                },
+                "header": {
+                  "anchorBarVisible": false,
+                  "visible": false
+                }
+              }
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/JobPosting({key})"
+        }
+      },
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

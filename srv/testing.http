@@ -1,0 +1,28 @@
+POST  http://localhost:4004/odata/v4/job-manager/JobPosting(ID=09aec8ad-9f02-436f-8eda-f714dc51040f,IsActiveEntity=true)/JobManager.acceptJobPosting 
+Content-Type: application/json
+
+######
+
+POST  http://localhost:4004/odata/v4/job-manager/JobPosting(ID=09aec8ad-9f02-436f-8eda-f714dc51040f,IsActiveEntity=true)/JobManager.rejectJobPosting 
+Content-Type: application/json
+
+#####
+POST  http://localhost:4004/odata/v4/job-manager/JobPosting
+Content-Type: application/json
+
+{
+  "ID": "01c3dad5-7ff4-411a-92f2-cfd9804c6699",
+  "createdAt": "2024-02-01T13:53:23.000Z",
+  "createdBy": "sachinC",
+  "modifiedAt": "2024-02-01T23:19:50.620Z",
+  "modifiedBy": "sachinC",
+  "title": "title4214",
+  "description": "description2307",
+  "requirements": "requirements3299",
+  "location": "location4639",
+  "salary": 6545,
+  "status_code": "A",
+  "HasActiveEntity": true,
+  "HasDraftEntity": false,
+  "IsActiveEntity": true
+}

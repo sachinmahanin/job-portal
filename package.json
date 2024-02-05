@@ -1,0 +1,67 @@
+{
+  "name": "job-portal",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "cds": {
+    "fiori": {
+      "lean_draft": true
+    },
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "basic",
+          "users": {
+            "admin": {
+              "password": "admin",
+              "roles": [
+                "creator",
+                "reviewer"
+              ]
+            },
+            "sachinC": {
+              "roles": [
+                "creator"
+              ],
+              "password": "sachin"
+            },
+            "sachinR": {
+              "roles": [
+                "reviewer"
+              ],
+              "password": "sachin"
+            }
+          }
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/xsenv": "^4.2.0",
+    "@sap/xssec": "^3.6.1",
+    "express": "^4",
+    "passport": "^0.7.0",
+    "passport-http": "^0.3.0"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.120.2",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
+    "sqlite3": "^5.1.7",
+    "cds-plugin-ui5": "^0.6.13"
+  },
+  "scripts": {
+    "watch-fiori": "cds watch --open jpms.fiori.fiori/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "sapux": [
+    "app/fiori"
+  ],
+  "workspaces": [
+    "app/*"
+  ]
+}
