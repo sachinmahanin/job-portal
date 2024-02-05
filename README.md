@@ -17,13 +17,20 @@ File or Folder | Purpose
 Download the the job-portal from github.com using command 
 git clone https://github.com/sachinmahanin/job-portal.git
 
-
 1. Open the job-portal folder in vscode
 2. Open a  terminal  and Run “npm install”
 3. Run “npm run watch-fiori” , UI will come up , log in with any of the UserName & Password mentioned below.
 4. Please note that it is difficult to switch the user with basic authentication . I have to kill the chrome and restart the application.
 
-
+Users
+UserName :  sachinR
+Password: sachin
+Role : reviewer
+ 
+UserName :  sachinC
+Password: sachin
+Role : creator
+ 
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
